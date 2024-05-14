@@ -24,7 +24,7 @@ class AuthController extends Controller
         
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('site.fornecedores') //caso ocorra login, permitir visualização de novas paginas.
+            return redirect()->intended('app.fornecedores') //caso ocorra login, permitir visualização de novas paginas.
                         ->withSuccess('Login com sucesso'); 
         }
         // Falha na autenticação, redirecionar de volta para a página de login
@@ -51,7 +51,7 @@ class AuthController extends Controller
             $data = $request->all();
             $check = $this->create($data);
                 
-            return redirect("site.fornecedores")->withSuccess('Voce realizou seu login.');
+            return redirect("app.fornecedores")->withSuccess('Voce realizou seu login.');
         } catch (\Exception $e) {
             // Registre a exceção ou retorne para a página de cadastro com uma mensagem de erro
             return redirect()->back()->withErrors(['error' => 'Erro ao criar cadastro, tente novamente!']);
@@ -71,7 +71,7 @@ class AuthController extends Controller
     public function dashboard() //leva o usuario para '/', ou não permite login sem autenticação
     {
         if(Auth::check()){
-            return view('site.fornecedores');
+            return view('app.fornecedores');
         }
   
         return redirect("site.principal")->withSuccess('Voce não possui permissões para acesso.');

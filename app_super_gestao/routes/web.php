@@ -22,15 +22,15 @@ Route::get('/login', 'AuthController@index')->name('site.login');
 Route::post('/custom-login', 'AuthController@customLogin')->name('site.login.custom');
 Route::get('/cadastro', 'AuthController@cadastro')->name('site.cadastro');
 Route::post('/custom-cadastro', 'AuthController@customCadastro')->name('site.cadastro.custom');
-Route::get('/signout', 'AuthController@signOut')->name('signout');
+//Route::get('/signout', 'AuthController@signOut')->name('site.index');
 
 
 /*Route::get('/login', function(){return 'Login';})->name('site.login');*/
 
 Route::prefix('/app')->group(function(){
-    Route::get('/clientes', function(){return 'Clientes';})->name('app.clientes');
+    Route::get('/clientes', 'ClientesController@index')->name('app.clientes');
     Route::get('/fornecedores', 'FornecedorController@index')->name('app.fornecedores');
-    Route::get('/produtos', function(){return 'produtos';})->name('app.produtos');
+    Route::get('/produtos', 'ProdutosController@index')->name('app.produtos');
 });
 
 Route::fallback(function(){

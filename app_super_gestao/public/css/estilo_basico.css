@@ -172,6 +172,32 @@ button:hover {
 
 .rodape {
     width: 100%;
+    left: 0;
+    bottom: 0;
+    position: bottom;
+}
+
+.container-fornecedores{
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.fornecedor{
+    margin: 0px 400px 0px 400px;
+    display: center;
+    text-align: center;
+    flex-direction: column;
+    align-items: baseline;
+    width: 30%;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px;
+}
+
+.fornecedor p{
+    color: #333333 !important;
 }
 
 .redes-sociais, .area-contato, .localizacao {
